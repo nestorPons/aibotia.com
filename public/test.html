@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Socket.IO</title>
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+  <h1>Conexión WebSocket</h1>
+  <div id="log"></div>
+
+  <script>
+    const log = (msg) => {
+      const el = document.createElement('div');
+      el.textContent = msg;
+      document.getElementById('log').appendChild(el);
+    };
+
+    const socket = io('https://api.aibotia.com', {
+      path: '/tamara/socket.io',
+      transports: ['websocket']
+    });
+
+    socket.on('connect', () => log('✅ Conectado al WebSocket'));
+    socket.on('connect_error', (err) => log('❌ Error de conexión: ' + err.message));
+    socket.on('qr', (data) => log('📥 Evento QR recibido: ' + JSON.stringify(data)));
+  </script>
+</body>
+</html>

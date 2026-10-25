@@ -1,0 +1,55 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Handle X-XSRF-Token Header
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW IPDENYID:Cdz3lbiLNF
+deny from 109.230.82.170
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE Cdz3lbiLNF:IPDENYID
+
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW IPDENYID:177oYMaTM1
+deny from 181.78.80.35
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE 177oYMaTM1:IPDENYID
+
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW IPDENYID:4RNuGUOsCE
+deny from 103.156.74.156
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE 4RNuGUOsCE:IPDENYID
+
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW IPDENYID:nhiMjhDZ4W
+deny from 103.17.32.60
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE nhiMjhDZ4W:IPDENYID
+
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW IPDENYID:pE6OSzrlgd
+deny from 174.138.18.105
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE pE6OSzrlgd:IPDENYID
+
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW IPDENYID:0um6MXLx5M
+deny from 103.171.245.182
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE 0um6MXLx5M:IPDENYID
+
