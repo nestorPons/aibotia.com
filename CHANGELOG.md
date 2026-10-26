@@ -23,3 +23,4 @@
 - `ApiService`: constructor tolerante a `API_BASE_URL` vacío y `try/catch` en las peticiones para no romper el panel si la API no está disponible.
 - `qr-display`: corregido estado de conexión cuando la API no responde (antes mostraba "vinculado" por un valor string truthy).
 - Verificado login demo end-to-end: `/admin/login` → `/admin/inicio` sin errores, sin recursos HTTP y con estilos/CSS cargados.
+- Corregido error 500 post-deploy por `bootstrap/cache` no escribible (rsync lo cambiaba a uid 1001): excluido `bootstrap/cache/` del rsync y añadido `chown`+`optimize:clear` como `www-data` en el workflow.
