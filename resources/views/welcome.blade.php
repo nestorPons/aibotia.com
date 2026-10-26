@@ -10,7 +10,6 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 
@@ -27,7 +26,7 @@
     <!-- ¿Qué es AIBOT? -->
     <section id="aibot" class="bg-gray-100 py-16 px-6 h-50">
         <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4">🤖 ¿Qué es <span class="text-green-600">AIBOT</span>?</h2>
+            <h2 class="flex items-center justify-center gap-3 text-4xl font-bold text-gray-800 mb-4"><x-aibot-icon name="robot" class="w-10 h-10 text-green-600" /> ¿Qué es <span class="text-green-600">AIBOT</span>?</h2>
             <p class="text-gray-600 text-lg mb-8 max-w-3xl mx-auto">
                 AIBOT es un chatbot inteligente diseñado para empresas que reciben muchas consultas repetitivas por
                 <strong>WhatsApp</strong>. Responde automáticamente preguntas sobre ubicación, servicios, horarios y más.
@@ -37,23 +36,23 @@
 
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-white shadow-md rounded-lg p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">💬 Responde Consultas</h3>
+                    <h3 class="flex items-center gap-2 text-xl font-semibold text-gray-800 mb-3"><x-aibot-icon name="chat" class="w-6 h-6 text-green-600" /> Responde Consultas</h3>
                     <p class="text-gray-600">Automatiza respuestas sobre ubicación, horarios, servicios y más.</p>
                 </div>
 
                 <div class="bg-white shadow-md rounded-lg p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">📅 Agenda Citas</h3>
+                    <h3 class="flex items-center gap-2 text-xl font-semibold text-gray-800 mb-3"><x-aibot-icon name="calendar" class="w-6 h-6 text-green-600" /> Agenda Citas</h3>
                     <p class="text-gray-600">Permite a los clientes reservar citas sin necesidad de un operador.</p>
                 </div>
 
                 <div class="bg-white shadow-md rounded-lg p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">🔔 Envía Recordatorios</h3>
+                    <h3 class="flex items-center gap-2 text-xl font-semibold text-gray-800 mb-3"><x-aibot-icon name="bell" class="w-6 h-6 text-green-600" /> Envía Recordatorios</h3>
                     <p class="text-gray-600">Reduce ausencias con alertas automáticas a los clientes.</p>
                 </div>
             </div>
 
-            <a href="#contacto" class="mt-8 inline-block bg-green-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-green-700 transition">
-                🚀 Integrar AIBOT en mi empresa
+            <a href="#contacto" class="mt-8 inline-flex items-center justify-center gap-2 bg-green-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-green-700 transition">
+                <x-aibot-icon name="rocket" class="w-5 h-5" /> Integrar AIBOT en mi empresa
             </a>
         </div>
     </section>
@@ -169,11 +168,11 @@
 
     <footer class="bg-gray-900 text-white py-6 text-center">
         <div class="">
-            <p><i class="fas fa-envelope"></i> <a href="mailto:info@nestorpons.com" class="text-green-400">info@nestorpons.com</a></p>
-            <p><i class="fas fa-globe"></i> <a href="https://nestorpons.com" class="text-green-400">nestorpons.com</a></p>
-            <p><i class="fas fa-phone-alt"></i> <span class="text-green-400">660 291 ***</span></p>
-            <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.app.goo.gl/BKWKsA7SGpoQuSQo6" class="text-green-400">12002 Castellón</a></p>
-            <p><i class="fab fa-github"></i> <a href="https://github.com/nestorPons/wwebjs-bot" class="text-green-400">Proyecto en GitHub</a></p>
+            <p class="flex items-center justify-center gap-2"><x-aibot-icon name="mail" class="w-4 h-4 text-green-400" /> <a href="mailto:info@nestorpons.com" class="text-green-400">info@nestorpons.com</a></p>
+            <p class="flex items-center justify-center gap-2"><x-aibot-icon name="globe" class="w-4 h-4 text-green-400" /> <a href="https://nestorpons.com" class="text-green-400">nestorpons.com</a></p>
+            <p class="flex items-center justify-center gap-2"><x-aibot-icon name="phone" class="w-4 h-4 text-green-400" /> <span class="text-green-400">660 291 ***</span></p>
+            <p class="flex items-center justify-center gap-2"><x-aibot-icon name="map-pin" class="w-4 h-4 text-green-400" /> <a href="https://maps.app.goo.gl/BKWKsA7SGpoQuSQo6" class="text-green-400">12002 Castellón</a></p>
+            <p class="flex items-center justify-center gap-2"><x-aibot-icon name="github" class="w-4 h-4 text-green-400" /> <a href="https://github.com/nestorPons/wwebjs-bot" class="text-green-400">Proyecto en GitHub</a></p>
         </div>
     </footer>
 

@@ -19,8 +19,7 @@ mount(function () {
     }
     $getStatus = new ApiService(auth()->user()->botname, 'whatsapp/status');
     $status = $getStatus->fetch();
-    if (!$status) $status['connected'] = 'desvinculado';
-    $this->connectionStatus = $status['connected'] ? 'vinculado' : 'desvinculado';
+    $this->connectionStatus = !empty($status['connected']) ? 'vinculado' : 'desvinculado';
 
     $api = new ApiService(auth()->user()->botname, 'whatsapp/qr');
     $data = $api->fetch();

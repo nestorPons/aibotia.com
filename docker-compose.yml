@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: aibotia_app
-    restart: unless-stopped
+    restart: always
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
@@ -17,28 +17,33 @@ services:
   web:
     image: nginx:alpine
     container_name: aibotia_web
-    restart: unless-stopped
-    ports:
-      - "8080:80"
+    restart: always
     volumes:
       - ./:/var/www/html
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - app
     networks:
+      - traefik-net
       - internal
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-net"
+      - "traefik.http.routers.aibotia.rule=Host(`aibotia.com`) || Host(`www.aibotia.com`)"
+      - "traefik.http.routers.aibotia.entrypoints=web,websecure"
+      - "traefik.http.routers.aibotia.tls=true"
+      - "traefik.http.routers.aibotia.tls.certresolver=myresolver"
+      - "traefik.http.services.aibotia.loadbalancer.server.port=80"
 
   db:
     image: mariadb:11
     container_name: aibotia_db
-    restart: unless-stopped
+    restart: always
     environment:
       MYSQL_DATABASE: aibotia
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: aibotia
       MYSQL_PASSWORD: aibotia
-    ports:
-      - "3306:3306"
     volumes:
       - dbdata:/var/lib/mysql
     healthcheck:
@@ -49,24 +54,11 @@ services:
     networks:
       - internal
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: aibotia_phpmyadmin
-    restart: unless-stopped
-    ports:
-      - "8081:80"
-    environment:
-      PMA_HOST: db
-      PMA_USER: root
-      PMA_PASSWORD: root
-    depends_on:
-      - db
-    networks:
-      - internal
-
 volumes:
   dbdata:
 
 networks:
   internal:
     driver: bridge
+  traefik-net:
+    external: true
